@@ -1,0 +1,27 @@
+;
+; flashair2evernote.conf - for supervisord configuration file
+;
+; install
+;     $ sudo apt-get install supervisor
+;     $ cd ~/work/flashair2evernote.rb/
+;     $ sudo cp flashair2evernote.conf.sample /etc/supervisor/conf.d/flashair2evernote.conf
+;     $ sudo vi /etc/supervisor/conf.d/flashair2evernote.conf
+;       (fix path, etc...)
+;     $ sudo supervisorctl reread
+;     $ sudo supervisorctl add flashair2evernote
+;     $ sudo supervisorctl status
+;     flashair2evernote                  RUNNING    pid 8192, uptime 0:00:30
+;
+; see also
+;     Supervisor: A Process Control System
+;     http://supervisord.org/
+;
+[program:flashair2evernote]
+command         = /usr/bin/ruby /home/pi/work/flashair2evernote.rb/flashair2evernote.rb
+numprocs        = 1
+autostart       = true
+autorestart     = true
+user            = pi
+environment     = HOME=/home/pi/
+redirect_stderr = true
+stdout_logfile  = //home/pi/work/flashair2evernote.rb/log.txt

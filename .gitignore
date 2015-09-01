@@ -1,0 +1,5 @@
+*.swp
+.history.pstore
+.tmp
+config.yaml
+log.txt

@@ -1,0 +1,6 @@
+gmail_username:         username@gmail.com
+gmail_password:         password
+evernote_mail:          evernote.post.address@m.evernote.com
+evernote_notebook_name: note
+flashair_list_url:      http://192.168.0.1/command.cgi?op=100&DIR=/DCIM/101PHOTO
+flashair_download_url:  http://192.168.0.1/DCIM/101PHOTO
