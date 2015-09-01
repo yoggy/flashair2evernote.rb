@@ -1,6 +1,8 @@
 flashair2evernote.rb
 ====
 
+![FlashAir & MDS-820W](https://farm1.staticflickr.com/693/21033925306_0f6e52650e_n.jpg)
+
 How to use
 ----
 Configuration for Raspberry Pi Model B+ / Raspberry Pi 2 Model B
