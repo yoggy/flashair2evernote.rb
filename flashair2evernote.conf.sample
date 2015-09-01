@@ -24,4 +24,4 @@ autorestart     = true
 user            = pi
 environment     = HOME=/home/pi/
 redirect_stderr = true
-stdout_logfile  = //home/pi/work/flashair2evernote.rb/log.txt
+stdout_logfile  = /home/pi/work/flashair2evernote.rb/log.txt
