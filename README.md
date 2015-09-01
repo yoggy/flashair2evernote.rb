@@ -22,7 +22,7 @@ Configuration for Raspberry Pi Model B+ / Raspberry Pi 2 Model B
     $ cp config.yaml.sample config.yaml
     $ vi config.yaml
 
-        gmail_username:         username@gmail.com                   <- edit this lines
+        gmail_username:         username@gmail.com                   <- please edit these lines...
         gmail_password:         password                             <-
         evernote_mail:          evernote.post.address@m.evernote.com <-
         evernote_notebook_name: note                                 <- 
