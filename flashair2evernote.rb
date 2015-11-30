@@ -23,7 +23,7 @@ FileUtils.mkdir_p($tmp_dir)
 def setup_wlan0
   # ifup wlan0
   system("sudo ifdown wlan0 >/dev/null 2>&1")
-  sleep 0.5
+  sleep 1
   system("sudo ifup wlan0 >/dev/null 2>&1")
   sleep 1
   
@@ -35,7 +35,7 @@ def setup_wlan0
       has_local_ip = true
       break
     end
-    sleep 0.5
+    sleep 10
   end
 
   has_local_ip
