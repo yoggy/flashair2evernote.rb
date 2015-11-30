@@ -2,4 +2,4 @@
 .history.pstore
 .tmp
 config.yaml
-log.txt
+log.txt*
