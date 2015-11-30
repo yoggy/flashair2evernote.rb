@@ -17,11 +17,14 @@
 ;     http://supervisord.org/
 ;
 [program:flashair2evernote]
-command         = /usr/bin/ruby /home/pi/work/flashair2evernote.rb/flashair2evernote.rb
-numprocs        = 1
-autostart       = true
-autorestart     = true
-user            = pi
-environment     = HOME=/home/pi/
-redirect_stderr = true
-stdout_logfile  = /home/pi/work/flashair2evernote.rb/log.txt
+command                 = /usr/bin/ruby /home/pi/work/flashair2evernote.rb/flashair2evernote.rb
+numprocs                = 1
+autostart               = true
+autorestart             = true
+user                    = pi
+environment             = HOME=/home/pi/
+redirect_stderr         = true
+stdout_logfile          = /home/pi/work/flashair2evernote.rb/log.txt
+stdout_logfile_maxbytes = 10MB
+stdout_logfile_backups  = 2
+
