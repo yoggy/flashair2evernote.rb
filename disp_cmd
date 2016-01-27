@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+
+def usage
+  puts "usage : ./disp_cmd [string]"
+  exit(0)
+end
+usage if ARGV.size == 0
+
+cmd = 'redis-cli set "oled:3" ' + ARGV[0]
+IO.popen(cmd) do |io|
+  io.gets
+end

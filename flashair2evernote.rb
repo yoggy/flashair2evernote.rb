@@ -11,13 +11,14 @@ require 'mail'
 require 'yaml'
 require 'ostruct'
 
-$conf = OpenStruct.new(YAML.load_file(File.dirname($0) + '/config.yaml'))
+Dir.chdir(File.dirname($0))
 
+$conf = OpenStruct.new(YAML.load_file('config.yaml'))
 $log = Logger.new(STDOUT)
 $log.level = Logger::DEBUG
 
-$db = PStore.new(File.dirname($0) + '/.history.pstore')
-$tmp_dir = File.dirname($0) + '/.tmp/'
+$db = PStore.new('.history.pstore')
+$tmp_dir = '.tmp/'
 FileUtils.mkdir_p($tmp_dir)
 
 def setup_wlan0
@@ -149,9 +150,22 @@ def upload(f)
   end
 end
 
+def disp_cmd(str)
+  if File.exist?("./disp_cmd")
+    cmd = "./disp_cmd #{str}"
+    $log.info("exec : #{cmd}")
+    begin
+      system(cmd)
+    rescue Exception => e
+      puts e
+    end
+  end
+end
+
 def main
   loop do
     $log.info "check wifi connection..."
+    disp_cmd("check_wifi")
     break if setup_wlan0 == true
   end
 
@@ -159,6 +173,7 @@ def main
     break if ping("192.168.0.1") == false
 
     $log.info "check new files on FlashAir..."
+    disp_cmd("check_flashair")
 
     now = get_files
     if now.nil?
@@ -176,6 +191,7 @@ def main
     diff = check_files(old, now)
     if !diff.nil? && diff.size > 0
       diff.each do |f|
+        disp_cmd("upload:#{File.basename(f)}")
         upload(f)
       end
     end
